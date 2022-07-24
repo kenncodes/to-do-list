@@ -22,12 +22,12 @@
       <h2>No Tasks Found</h2>
       <% }else { %>
       <% for(var i=0; i< tasks.length; i++ ) { %>
-      <li class="taskLi">
+      <li class="taskLi" id="<%= tasks[i]._id %>">
         
         <% if(tasks[i].isComplete === true){ %> 
-          <input type="checkbox" checked id="<%= tasks[i]._id %>">
+          <input type="checkbox" checked>
         <% }else{ %>
-          <input type="checkbox" id="<%= tasks[i]._id %>" >
+          <input type="checkbox">
           <% } %>
         <span> <%= tasks[i].name %> </span>
         <img
@@ -47,5 +47,6 @@
       </li> -->
     </ul>
   </div>
+  <script type="application/javascript" src="../main.js"></script>
   </body>
 </html>
