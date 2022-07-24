@@ -1,5 +1,4 @@
 const express = require('express')
-const PORT = 8080
 const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -20,6 +19,7 @@ MongoClient.connect(dbConnectionStr)
         collection = db.collection('tasks');
     })
 
+    
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -52,7 +52,7 @@ app.post('/addtask', (req, res) => {
 })
 
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log(`The server is now running on port ${PORT}!
      Betta go catch it!`);
 })
