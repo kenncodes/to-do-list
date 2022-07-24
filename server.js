@@ -1,6 +1,7 @@
 console.log("hi") 
 
 const express = require('express')
+const PORT = process.env.PORT || '8080'
 const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -55,7 +56,7 @@ app.post('/addtask', (req, res) => {
 
 
 
-
+app.set("port", PORT);
 app.listen(process.env.PORT , () => {
     console.log(`Listening on PORT ${process.env.PORT}`)
 })
