@@ -1,24 +1,17 @@
-console.log("hi") 
-
 const express = require('express')
-const PORT = process.env.PORT || '8080'
+const PORT = 8080
 const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const mongodb = require('mongodb')
 require('dotenv').config()
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
-app.use(bodyParser.json());
 
 let db,
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'todolist',
     collection
 
-const MongoClient = mongodb.MongoClient;
+const MongoClient =  require('mongodb').MongoClient;
 MongoClient.connect(dbConnectionStr)
     .then(client => {
         console.log("connected to database");
@@ -27,6 +20,10 @@ MongoClient.connect(dbConnectionStr)
         collection = db.collection('tasks');
     })
 
+app.use(bodyParser.urlencoded({ extended: true }))
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(bodyParser.json());
 
 //show list of all tasks or no tasks
 app.get("/", (request, response) => {
@@ -55,8 +52,7 @@ app.post('/addtask', (req, res) => {
 })
 
 
-
-app.set("port", PORT);
-app.listen(process.env.PORT , () => {
-    console.log(`Listening on PORT ${process.env.PORT}`)
+app.listen(process.env.PORT || PORT, () => {
+    console.log(`The server is now running on port ${PORT}!
+     Betta go catch it!`);
 })
