@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&family=Quicksand&display=swap" rel="stylesheet"> 
+  
+  </head>
+  <body>
+    <h1>My To do List</h1>
+    <form action="/addtask" method="POST">
+      <input type="text"  id="taskName" placeholder="task" id="inputBox" name="name" />
+      <button type="submit"  id="enterButton" >Enter</button>
+    </form>
+    <div>
+    <ul id="tasks">
+      <% if(tasks.length == 0) { %>
+      <h2>No Tasks Found</h2>
+      <% }else { %>
+      <% for(var i=0; i< tasks.length; i++ ) { %>
+      <li class="taskLi">
+        
+        <% if(tasks[i].isComplete === true){ %> 
+          <input type="checkbox" checked id="<%= tasks[i]._id %>">
+        <% }else{ %>
+          <input type="checkbox" id="<%= tasks[i]._id %>" >
+          <% } %>
+        <span> <%= tasks[i].name %> </span>
+        <img
+          class="deleteImg"
+          src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png"
+          width="20"
+        />
+      </li>
+      <% }} %>
+      <!-- <li>
+        <input type="checkbox" checked="false" />
+        <span>My Sample Task</span>
+        <img class="deleteImg"
+          src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png"
+          width="20"
+        />
+      </li> -->
+    </ul>
+  </div>
+  </body>
+</html>

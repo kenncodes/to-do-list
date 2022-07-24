@@ -1,0 +1,47 @@
+body {
+  margin: 10px;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  background-color: cornsilk;
+}
+
+input[type="text"] {
+  padding: 5px;
+  border: 2px solid rgb(4, 128, 0);
+  width: 60%;
+}
+
+button {
+  padding: 5px;
+}
+
+div{
+  display: flex ;
+  justify-content: center;
+}
+ul {
+  padding: 0;
+  justify-content: center;
+  width: 90%;
+}
+li {
+  background-color: rgb(252, 252, 252);
+  background-color: rgb(240, 228, 205);
+  list-style-type: none;
+  list-style-image: none;
+  padding: 15px;
+  border: 2px solid rgb(142, 142, 180);
+  text-align: left;
+  margin:2px;
+
+}
+
+img {
+  float: right;
+}
+
+.deleteImg:hover{
+  scale: 1.2;
+  cursor:pointer;
+}
