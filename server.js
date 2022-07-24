@@ -5,7 +5,6 @@ const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongodb = require('mongodb')
-const PORT = 3000
 require('dotenv').config()
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -57,6 +56,6 @@ app.post('/addtask', (req, res) => {
 
 
 
-app.listen(process.env.PORT || PORT, () => {
-    console.log(`Listening on PORT ${PORT}`)
+app.listen(process.env.PORT , () => {
+    console.log(`Listening on PORT ${process.env.PORT}`)
 })
