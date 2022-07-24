@@ -6,7 +6,7 @@ require('dotenv').config()
 
 
 let db,
-    dbConnectionStr = process.env.DB_STRING,
+    dbConnectionStr = process.env.MONGO_URI,
     dbName = 'todolist',
     collection
 
@@ -52,6 +52,6 @@ app.post('/addtask', (req, res) => {
 })
 
 
-app.listen(process.env.PORT, () => {
-    console.log(`The server is now running on port` + process.env.PORT);
+app.listen(process.env.PORT || 3000 , () => {
+    console.log(`The server is now running on port`);
 })
