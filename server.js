@@ -6,7 +6,7 @@ require('dotenv').config()
 
 
 let db,
-    dbConnectionStr = process.env.MONGO_URI,
+    dbConnectionStr = process.env.DB_STRING,
     dbName = 'todolist',
     collection
 
