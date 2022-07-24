@@ -53,6 +53,5 @@ app.post('/addtask', (req, res) => {
 
 
 app.listen(process.env.PORT, () => {
-    console.log(`The server is now running on port ${PORT}!
-     Betta go catch it!`);
+    console.log(`The server is now running on port` + process.env.PORT);
 })
