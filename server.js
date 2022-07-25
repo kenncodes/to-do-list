@@ -39,16 +39,36 @@ app.get("/", (request, response) => {
 
 //add new task
 app.post('/addtask', (req, res) => {
-    collection.insertOne({
-        name: req.body.name,
-        isComplete: false
-    })
-        .then(result => {
-            //console.log(result)
-            res.redirect("/")
-
+    if (req.body.name.length > 3) {
+        collection.insertOne({
+            name: req.body.name,
+            isComplete: false
         })
-        .catch(error => console.error(error))
+            .then(result => {
+                //console.log(result)
+                res.redirect("/")
+
+            })
+            .catch(error => console.error(error))
+    } else {
+        console.log("not enough letters")
+        res.redirect("/")
+    }
+})
+
+//update if completed?
+app.put('/updatetask/:id', (req, res) => {
+    console.log(req.params.id);
+    collection.findOneAndUpdate(
+        { "_id": ObjectId(req.params.id)},
+        {  
+            $set:{ isComplete: req.body.isComplete }
+        
+        }
+    )
+    .then(result => { res.json("success")} )
+    .catch(error => console.error(error))
+
 })
 
 //deletebutton

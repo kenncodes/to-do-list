@@ -18,6 +18,33 @@ const enterButton = document.querySelector("#enterButton");
         window.location.reload(true);
     })
 })*/
+const checkButtons = document.querySelectorAll("input[type=checkbox]");
+let id = "";
+let isComplete;
+for(var i=0; i < checkButtons.length; i++){
+    //alert(checkButtons[i]);
+    checkButtons[i].addEventListener('click', e => {
+        const par = e.target.parentElement;
+        id= par.id;
+        isComplete = e.target.checked;
+        //console.log(par);
+        //console.log(e.target.checked);
+        fetch(`updatetask/${id}`, {
+            method: 'put',
+            headers: { 'Content-Type' : 'application/json' },
+            body: JSON.stringify({
+                id: id,
+                isComplete: isComplete
+            })
+        })
+        .then(res => {
+            if( res.ok) return res.json()
+        })
+        .catch(error => {
+           console.log(error)
+        })
+    })
+}
 
 const deleteButtons = document.querySelectorAll("img");
 let taskId = "";
