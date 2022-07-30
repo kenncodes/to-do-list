@@ -66,7 +66,10 @@ app.put('/updatetask/:id', (req, res) => {
         
         }
     )
-    .then(result => { res.json("success")} )
+    .then(result => { 
+        res.json("success");
+       
+    } )
     .catch(error => console.error(error))
 
 })

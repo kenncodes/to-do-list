@@ -17,13 +17,22 @@
       <button type="submit"  id="enterButton" >Enter</button>
     </form>
     <div>
+      <input type="radio" id="all" name="whatToShow" value="all" autocomplete="off" checked>
+      <label for="all">All</label>
+      <input type="radio" id="complete" name="whatToShow" value="complete">
+      <label for="complete" name="whatToShow">Complete</label>
+      <input type="radio" id="incomplete" name="whatToShow" value="incomplete">
+      <label for="incomplete">Incomplete</label>
+    </div>
+    <div>
+    
     <ul id="tasks">
       <% if(tasks.length == 0) { %>
       <h2>No Tasks Found</h2>
-      <% }else { %>
+        <% } else{ %>
       <% for(var i=0; i< tasks.length; i++ ) { %>
       <li class="taskLi" id="<%= tasks[i]._id %>">
-        
+       
         <% if(tasks[i].isComplete === true){ %> 
           <input type="checkbox" checked>
         <% }else{ %>

@@ -1,6 +1,11 @@
-const enterButton = document.querySelector("#enterButton");
 
-/*enterButton.addEventListener('click', _ => {
+document.addEventListener("DOMContentLoaded", function(event) {
+    document.getElementById("all").checked = true;
+});
+
+/*    const enterButton = document.querySelector("#enterButton");
+
+enterButton.addEventListener('click', _ => {
     let taskName = document.getElementById("taskName");
     fetch("/addtask", {
         method: 'post',
@@ -71,3 +76,40 @@ for (var i = 0; i < deleteButtons.length; i++) {
         })
     })
 }
+
+var complete = document.getElementById("complete");
+complete.addEventListener('click', function() {
+    var lis = document.querySelectorAll(".taskLi");
+ //   alert("hello")
+    lis.forEach(li => {
+        if(li.childNodes[1].checked == true){
+            li.setAttribute("style", "display:block");
+        }else{
+            li.setAttribute("style", "display:none");
+        }
+        console.log(li);
+    })
+})
+
+var all = document.getElementById("all");
+all.addEventListener('click', function() {
+    var lis = document.querySelectorAll(".taskLi");
+   // alert("hello")
+    lis.forEach(li => {
+            li.setAttribute("style", "display:block");
+    })
+})
+
+var incomplete = document.getElementById("incomplete");
+incomplete.addEventListener('click', function() {
+    var lis = document.querySelectorAll(".taskLi");
+   // alert("hello")
+    lis.forEach(li => {
+        if(li.childNodes[1].checked === false){
+            li.setAttribute("style", "display:block");
+        }else{
+            li.setAttribute("style", "display:none");
+        }
+        console.log(li.childNodes[1].checked);
+    })
+})
