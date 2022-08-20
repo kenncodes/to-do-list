@@ -34,7 +34,7 @@ for(var i=0; i < checkButtons.length; i++){
         isComplete = e.target.checked;
         //console.log(par);
         //console.log(e.target.checked);
-        fetch(`updatetask/${id}`, {
+        fetch(`task/${id}`, {
             method: 'put',
             headers: { 'Content-Type' : 'application/json' },
             body: JSON.stringify({
@@ -43,10 +43,11 @@ for(var i=0; i < checkButtons.length; i++){
             })
         })
         .then(res => {
-            if( res.ok) return res.json()
+            window.location.reload();
         })
         .catch(error => {
            console.log(error)
+           
         })
     })
 }
@@ -59,7 +60,7 @@ for (var i = 0; i < deleteButtons.length; i++) {
         const li = e.target.parentNode
         console.log(li.id);
         taskId = "" + li.id;
-        fetch(`/deleteTask/${taskId}`, {
+        fetch(`/task/${taskId}`, {
             method: 'delete',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -111,5 +112,15 @@ incomplete.addEventListener('click', function() {
             li.setAttribute("style", "display:none");
         }
         console.log(li.childNodes[1].checked);
+       
     })
 })
+
+/*var listCheckbox = document.querySelectorAll(".taskLi");
+listCheckbox.forEach(checkbox => {
+   checkbox.addEventListener('click', function(){
+    checkbox.click();
+    console.log("clicked li");
+   // window.location.reload();
+   })
+})*/

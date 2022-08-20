@@ -11,8 +11,8 @@
   
   </head>
   <body>
-    <h1>My To do List</h1>
-    <form action="/addtask" method="POST">
+    <h1><%= user.firstName %>'s To do List</h1>
+    <form action="/task" method="POST">
       <input type="text"  id="taskName" placeholder="task" id="inputBox" name="name" />
       <button type="submit"  id="enterButton" >Enter</button>
     </form>
@@ -56,6 +56,9 @@
       </li> -->
     </ul>
   </div>
+
+
+  <a href="/auth/logout" >Logout</a>
   <script type="application/javascript" src="../main.js"></script>
   </body>
 </html>
