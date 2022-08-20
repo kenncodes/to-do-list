@@ -57,5 +57,5 @@ app.use('/', require("./routes/index"))
 app.use('/auth', require('./routes/auth'))
 app.use("/task", require('./routes/task'))
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 9000
 app.listen(port);
