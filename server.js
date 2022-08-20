@@ -58,4 +58,6 @@ app.use('/auth', require('./routes/auth'))
 app.use("/task", require('./routes/task'))
 
 const port = process.env.PORT || 9000
-app.listen(port);
+app.listen(port, () => {
+    console.log("running on port" + process.env.PORT)
+});
